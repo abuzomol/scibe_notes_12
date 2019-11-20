@@ -3,7 +3,7 @@
 
 In certain geometric applications like planar graphs, we might be interested in reporting the set of line segments $L$ associated with a window query  $w = [x_0, x_1] \times [y_0, y_1]$. 
 %
-This set $L$ contains all line segments with at least one end point inside $w$, or those segments that pass through the window $w$. 
+This set $L$ contains all line segments with at least one end point inside $w$, and those segments that span the window $w$ without having an end point inside $w$. 
 
 \begin{figure}[ht!]
 \centering
@@ -17,23 +17,31 @@ We can report all line segments with at least one endpoint inside $w$ using algo
 %
 We can use 2 instances of 3-sided query i.e. $ q_0 = [x_0, x_1] \times [y_0, +\infty ]  $ and $q_1 = [x_0, x_1] \times [-\infty,y_1]$, and then report the intersections of the two queries in time $O(\log n + k_0) + O(\log n + k_1) $. 
 %
+An algorithm to find intersections $q_0 \cap q_1$, would be to keep sorted lists of $q_0$ and $q_1$ and then find the intersection in linear time $O(k_0 + k_1)$ using modified merge algorithm in mergesort.
+%
 However, in the worst case scenario, the two queries may report all $n = k_0 + k_1$ endpoints while the intersection may contain only one element.
 %
-By constructing 2D range trees with storage $O(n\log n)$, and time $O(\log^2 n + k)$ we can report all line segments with ends points in $w$. Applying fractional cascading can reduce the query time further to $O(\log n +k)$ which is faster than $(\log n + n)$.
+By constructing 2D range trees with storage $O(n\log n)$, and time $O(\log^2 n + k)$ we can report all line segments with ends points in $w$. Applying fractional cascading can reduce the query time further to $O(\log n +k)$ which is faster than $O(\log n + n)$.
 
-What is left is how to handle efficiently those line segments that pass through our window query $w$? 
+What is left is how to handle efficiently those line segments that span our window query $w$ without any endpoint inside $w$? 
 %
-In other words, we are looking for line segments that stab two boundaries of our window query $w$.
+In other words, we are looking for line segments that cross two boundaries of our window query $w$.
 % 
-If we know how to report all line segments that stab one boundary,  say $[x_0, x_1]$, of $w$, we can easily check if they stab any of the remaining boundaries.
+If we know how to report all line segments that cross one boundary, say $[x_0, x_1]$, of $w$, we can easily check if they cross any of the remaining boundaries.
 %
-In this section, we present a data structure that can handle stabbing queries for orthogonal line segments in $O(\log n + k)$ time, and in the next section, we show how to report stabbing queries for slanted line segments in $O(\log n + k)$. 
+We present first a solution to a slightly simpler problem that can help us towards reporting those line segments crossing $w$ but with no end point inside $w$.
 
-\paragraph{Stabbing query:} Given a set of intervals $I = \{i_1, \dots, i_n\}$, and a vertical line query $\ell (x = t)$, find all intervals that are stabbed by $\ell$. 
+%and in the next section, we show how to report stabbing queries for slanted line segments in $O(\log n + k)$. 
 
-We apply divide and conquer strategy to solve this problem. We construct recursively a balanced BST over all end points of intervals in $I$, i.e. $E_{I} = \bigcup_{[i_l, i_r] = i \in I} \{i_l, i_r\}  $.
+\paragraph{Stabbing query:} Given a set of intervals $I = \{i_1, \dots, i_n\}$, and a vertical line query $\ell (q = x)$, find all intervals that are crossed by $\ell$. 
+
+\begin{claim}
+We can solve stabbing the query in $O(n\log n) $ and $O(n)$ space.
+\end{claim}
+
+We apply divide and conquer strategy to solve stabbing query problem. We construct recursively a balanced BST over all end points of intervals in $I$, i.e. $E_{I} = \bigcup_{[i_l, i_r] = i \in I} \{i_l.x, i_r.x\}  $.
 %
-While doing so, we augment this BST with extra space at each node and fill this space with appropriate intervals from $I$ as shown in Algorithm \ref{alg:build-interval}.
+While doing so, we augment this BST with extra data containing intervals from $I$ that contains $v.val$ in their boundaries as shown in Algorithm \ref{alg:build-interval}.
 
 \begin{algorithm}[H]
     \caption{} 
@@ -42,9 +50,9 @@ While doing so, we augment this BST with extra space at each node and fill this 
         \Function{BuildInt}{$I$}
         	\State $v.val = median(E_I)$ \Comment{key stored at node $v$}
           %\If{$I $ is not empty} 
-          	\State $I_{mid} \leftarrow \{ i \in I \mid i_l \leq v.val \leq i_r  \}$
-          	\State $I_{left} \leftarrow \{ i \in I \mid  i_r < v.val \}$
-          	\State $I_{mid} \leftarrow \{ i \in I \mid  v.val < i_l  \}$
+          	\State $I_{mid} \leftarrow \{ i \in I \mid i_l.x \leq v.val \leq i_r.x  \}$
+          	\State $I_{left} \leftarrow \{ i \in I \mid  i_r.x < v.val \}$
+          	\State $I_{mid} \leftarrow \{ i \in I \mid  v.val < i_l.x  \}$
           	\State $v.data \leftarrow I_{mid}$ \Comment{augmented data}
           	\State $v.left \leftarrow \textsc{BuildInt} (I_{left})$
           	\State $v.right \leftarrow \textsc{BuildInt} (I_{right})$ 	 
@@ -57,7 +65,7 @@ While doing so, we augment this BST with extra space at each node and fill this 
 \begin{figure}[ht!]
 \centering
 \includegraphics[scale=.8]{ipe/stabbing-line.pdf}
-\caption{ $I = I_{left} \cup I_{mid} \cup I_{right} $, and $\textsc{Stab}(I, \textcolor{red}{t}) = \{ i_3, i_4, i_1, i_2 \}$.}
+\caption{ $I = I_{left} \cup I_{mid} \cup I_{right} $, and $\textsc{Stab}(I, \textcolor{red}{x}) = \{ i_3, i_4, i_1, i_2 \}$.}
 \label{fig:stabbing-line}
 \end{figure}
 
@@ -67,53 +75,73 @@ The root of the interval tree divides the set of intervals $I = \{i_1, \dots, i_
 %
 The left subtree will recursively store $I_{left} = \{ i_1, i_2 \}$ and the right subtree will recursively store $I_{right} =\{i_6, i_7, i_8 \}$.
 % 
-\paragraph{How to store $I_{mid}$?} 
-In order to retrieve all intervals that are stabbed by $\textcolor{red}{q = t}$, we can scan the list of intervals stored at node $v$ for stabbed intervals before going to the left or right subtree depending on whether $\textcolor{red}{t}$ is less than or greater than $v.val$.
+\paragraph{How do we store $I_{mid}$?} 
+In order to retrieve all intervals that are stabbed by $\textcolor{red}{q = x}$, we can scan the list of intervals stored at node $v$ for intervals that contain $\textcolor{red}{x}$ before going to the left or right subtree depending on whether $\textcolor{red}{x}$ is less than or greater than $v.val$.
 %
-However, it may happen that all $n$ intervals are stored in the root, and checking for stabbed intervals may take $O(n)$ then instead of $O(k)$, the output size!
+However, it may happen that all $n$ intervals are stored in the root, and checking for intervals containing $\textcolor{red}{x}$ may take $O(n)$ then instead of $O(k)$, the output size!
 
-In order to prevent that, we store $I_{mid}$ in a more efficient way by storing $I_{mid}$ sorted by the start point in an increasing order, and another copy of $I'_{mid}$ of $I_{mid}$ ordered by the end point in a decreasing order.
+In order to prevent that, we store $I_{mid}$ in a more efficient way by storing $I_{mid}$ sorted by the $x$-coordinate of start point in an increasing order, and another copy of $I'_{mid}$ of $I_{mid}$ ordered by the $x$-coordinate of end point in a decreasing order.
 %
-To check if $\textcolor{red}{q = t}$ stabs some intervals in $v$, we compare $\textcolor{red}{t} $ with $v.val$ and accordingly scan the list $I_{mid}$ or $I'_{mid}$ till we find an interval that does not intersect $q$.
+To check if $\textcolor{red}{q = x}$ is contained in some intervals in $v$, we compare $\textcolor{red}{x} $ with $v.val$ and accordingly scan the list $I_{mid}$ or $I'_{mid}$ till we find an interval that does not contain $\textcolor{red}{x}$.
 %  
 In Figure \ref{fig:stabbing-line}, at the root of the tree, $I_{mid} = \{ i_3 \leq  i_4 \leq i_5 \} $ and $I'_{mid} = \{ i_3 \geq  i_5 \geq i_4 \}$. 
 %
-The stabbing query would then run over $I_{mid}$ and would have $i_3 \leq i_4 \leq \textcolor{red}{t} < i_5$.  
+The stabbing query would then run over $I_{mid}$ and would scan $i_3 \cap \textcolor{red}{\{x\}} \neq \phi, i_4 \cap \textcolor{red}{\{x\}} \neq \phi ,  i_5 \cap \textcolor{red}{\{x\}} = \phi$.  
 
 \begin{algorithm}[H]
     \caption{} 
     \label{alg:build-interval}
     \begin{algorithmic}[1]
-        \Function{QueryInt}{$v, t$}
-        	\If{ $ t == v.val$ or $I_{mid} = \phi$ }
+        \Function{QueryInt}{$v, \textcolor{red}{x}$}
+        	\If{ $ \textcolor{red}{x} = v.val$ or $I_{mid} = \phi$ }
         		return $I_{mid}$
         	\EndIf
         	\If{$ t < v.val$}
-        		\State return $ \{ i \in I_{mid} \mid i_l \leq t \}  \cup \textsc{QueryInt}(v.left, t)$
+        		\State $ \textsc{ReportInt} ( I_{mid}, left ,\textcolor{red}{x} , \leq ) $ \Comment{$O(k_v + 1)$}
+            \State$  \textsc{QueryInt}(v.left, t)$ 
        		\Else 
-       			\State return $\{ i \in I'{mid} \mid  i_r \geq t\} \cup \textsc{QueryInt}(v.right, t)$
+       			\State $\textsc{ReportInt} ( I'_{mid}, right, \textcolor{red}{x} , \geq )  $ \Comment{$O(k_v + 1)$}
+            \State $ \textsc{QueryInt}(v.right, t)$ 
         	\EndIf
-          \State return $v$.
+          \State return $v$. 
         \EndFunction
     \end{algorithmic}
 \end{algorithm}
 
+\begin{algorithm}[H]
+    \caption{} 
+    \begin{algorithmic}[1]
+        \Function{ReportInt}{$I, leftRight,\textcolor{red}{x}, comparator$}
+          \For{$j = 1$ to  $|I|$}
+            \If{ $ compartor(I[j].leftRight.x ,  \textcolor{red}{x} ) = true $}
+              \State output $I[j]$
+              \Else
+                \State break 
+            \EndIf
+          \EndFor
+        \EndFunction
+     \end{algorithmic}
+\end{algorithm}
+
+
 Since, we store only 2 copies of each interval $i$ in the entire tree, interval trees takes $O(n)$ space.
 %
-To report all stabbed intervals at node $v$, we need $k_v +1 $ comparisons. The recurrence relation is then given by
+To report all intervals containing $\textcolor{red}{x}$ at node $v$, we need $k_v +1 $ comparisons. The recurrence relation is then given by
 \begin{align*} 
-T(v) &= O(1 + k_v) + \max \{T(v.left) , T(v.right) \}   \\
-& = O(\log n + k).
+T(v) &= O(1 + k_v) + \max \{T(v.left)| , T(v.right) \}   \\
+& = O(\log n + k) && \text{(because the tree is balanced).}
 \end{align*}
 
 The preprocessing time takes sorting complexity, as we need to build a balanced BST, sort all intervals by start point, and again by end points. 
 %
 We can write the recurrence relation of $\textsc{BuiltInt}$ as follows:
 \begin{align*}
-	T(n, h) &= O(n) + T(I_{left}, h-1) + T (I_{right}, h-1) \\
+	T(n, h) &= O(n) + T(|I_{left}|, h-1) + T (|I_{right}|, h-1) \\
 	& = O(nh) \\
 	&= O(n \log n).  
 \end{align*}
 
-% \subsection*{Answering the window query}
-% In order to answer our original window query, we need sort $I_{mid}$ by $y$-axis  
+\subsection*{Answering the window query $w = [x_0, \times x_1] \times [y_0 \times y_1 ]$}
+In order to answer our original window query $w$, we can modify the data structure of augmented data $I_{mid}$ stored in interval tree to be 1D range tree over $y$-axis instead of an ordered list over $x$-axis.
+%
+Range tree takes $O( |I_{mid}|)$ to store data, $O(\log |I_{mid}| + k_v)$ for querying its data, and $O(|I_{mid}| \log  |I_{mid}|)$ for preprocessing. Since we need to query a range tree at each node $v$ visited while querying the interval tree, it takes $ \sum_{v \in Path \left(\textsc{QueryInt}(v, \textcolor{red}{x} ) \right) } O(\log n + k_v) = O( \log^2 n + k)$ to answering the window query.
