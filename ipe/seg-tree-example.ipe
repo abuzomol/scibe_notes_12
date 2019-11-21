@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70212" creator="Ipe 7.2.13">
-<info created="D:20191119165829" modified="D:20191119232607"/>
+<info created="D:20191119165829" modified="D:20191120214737"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -265,8 +265,8 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 -36 -4" transformations="translations" pos="116 504" stroke="black" type="label" width="26.475" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_1.left</text>
-<text matrix="1 0 0 1 -40 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="36.536" height="4.988" depth="1.82" valign="baseline" size="small" style="math">s_{-\infty} \cup s_1</text>
+<text matrix="1 0 0 1 -28 0" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_1</text>
+<text matrix="1 0 0 1 -40 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="35.997" height="6.726" depth="2.24" valign="baseline" size="small" style="math">(-\infty, x_2]</text>
 <path matrix="1 0 0 1 64 0" stroke="black">
 96 496 m
 136 496 l
@@ -278,8 +278,7 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 48 -4" transformations="translations" pos="116 504" stroke="black" type="label" width="31.437" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_1.right</text>
-<text matrix="1 0 0 1 52 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="27.127" height="4.988" depth="0.99" valign="baseline" size="small" style="math">s_2 \cup s_3</text>
+<text matrix="1 0 0 1 52 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="28.988" height="6.726" depth="2.24" valign="baseline" size="small" style="math">(x_2, x_4]</text>
 <path matrix="1 0 0 1 -16 0" stroke="black">
 64 464 m
 64 432 l
@@ -439,8 +438,7 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 152 -4" transformations="translations" pos="116 504" stroke="black" type="label" width="26.475" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_3.left</text>
-<text matrix="1 0 0 1 156 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="27.127" height="4.988" depth="0.99" valign="baseline" size="small" style="math">s_4 \cup s_5</text>
+<text matrix="1 0 0 1 156 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="28.988" height="6.726" depth="2.24" valign="baseline" size="small" style="math">(x_4, x_6]</text>
 <path matrix="1 0 0 1 264 0" stroke="black">
 96 496 m
 136 496 l
@@ -452,8 +450,7 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 248 -4" transformations="translations" pos="116 504" stroke="black" type="label" width="31.437" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_3.right</text>
-<text matrix="1 0 0 1 252 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="27.127" height="4.988" depth="0.99" valign="baseline" size="small" style="math">s_6 \cup s_7</text>
+<text matrix="1 0 0 1 252 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="28.988" height="6.726" depth="2.24" valign="baseline" size="small" style="math">(x_6, x_8]</text>
 <path matrix="1 0 0 1 352 0" stroke="black">
 96 496 m
 136 496 l
@@ -465,8 +462,7 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 336 -4" transformations="translations" pos="116 504" stroke="black" type="label" width="31.437" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_4.right</text>
-<text matrix="1 0 0 1 340 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="27.127" height="4.988" depth="0.99" valign="baseline" size="small" style="math">s_8 \cup s_9</text>
+<text matrix="1 0 0 1 336 -20" transformations="translations" pos="116 504" stroke="black" type="label" width="32.641" height="6.726" depth="2.24" valign="baseline" size="small" style="math">(x_8, x_{10}]</text>
 <path matrix="1 0 0 1 20 48" stroke="black">
 96 496 m
 136 496 l
@@ -478,8 +474,8 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 8 44" transformations="translations" pos="116 504" stroke="black" type="label" width="26.475" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_2.left</text>
-<text matrix="1 0 0 1 4 28" transformations="translations" pos="116 504" stroke="black" type="label" width="31.417" height="3.867" depth="1.82" valign="baseline" size="small" style="math">s_{-\infty} ..  s_3</text>
+<text matrix="1 0 0 1 16 48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_2</text>
+<text matrix="1 0 0 1 4 28" transformations="translations" pos="116 504" stroke="black" type="label" width="28.829" height="6.726" depth="2.24" valign="baseline" size="small" style="math">(\infty, x_4]</text>
 <path matrix="1 0 0 1 212 48" stroke="black">
 96 496 m
 136 496 l
@@ -491,8 +487,7 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 196 44" transformations="translations" pos="116 504" stroke="black" type="label" width="31.437" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_2.right</text>
-<text matrix="1 0 0 1 200 28" transformations="translations" pos="116 504" stroke="black" type="label" width="22.008" height="3.867" depth="0.99" valign="baseline" size="small" style="math">s_4..s_7</text>
+<text matrix="1 0 0 1 200 28" transformations="translations" pos="116 504" stroke="black" type="label" width="28.988" height="6.726" depth="2.24" valign="baseline" size="small" style="math">(x_4, x_8]</text>
 <path matrix="1 0 0 1 392 48" stroke="black">
 96 496 m
 136 496 l
@@ -504,8 +499,7 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 380 44" transformations="translations" pos="116 504" stroke="black" type="label" width="26.475" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_1.left</text>
-<text matrix="1 0 0 1 380 32" transformations="translations" pos="116 504" stroke="black" type="label" width="25.661" height="3.867" depth="0.99" valign="baseline" size="small" style="math">s_{8} .. s_{\infty}</text>
+<text matrix="1 0 0 1 380 28" transformations="translations" pos="116 504" stroke="black" type="label" width="29.853" height="6.726" depth="2.24" valign="baseline" size="small" style="math">(x_8, \infty)</text>
 <path stroke="black">
 136 528 m
 96 512 l
@@ -541,8 +535,7 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 108 92" transformations="translations" pos="116 504" stroke="black" type="label" width="26.475" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_4.left</text>
-<text matrix="1 0 0 1 104 76" transformations="translations" pos="116 504" stroke="black" type="label" width="31.417" height="3.867" depth="1.82" valign="baseline" size="small" style="math">s_{-\infty} .. s_7</text>
+<text matrix="1 0 0 1 104 76" transformations="translations" pos="116 504" stroke="black" type="label" width="35.997" height="6.726" depth="2.24" valign="baseline" size="small" style="math">(-\infty,x_8]</text>
 <path stroke="black">
 284 480 m
 256 464 l
@@ -586,8 +579,7 @@ h
 136 512 l
 h
 </path>
-<text matrix="1 0 0 1 180 140" transformations="translations" pos="116 504" stroke="black" type="label" width="26.475" height="6.23" depth="1.74" valign="baseline" size="small" style="math">\ell_5.left</text>
-<text matrix="1 0 0 1 176 124" transformations="translations" pos="116 504" stroke="black" type="label" width="35.07" height="3.867" depth="1.82" valign="baseline" size="small" style="math">s_{-\infty}.. s_{\infty}</text>
+<text matrix="1 0 0 1 176 124" transformations="translations" pos="116 504" stroke="black" type="label" width="33.873" height="5.98" depth="1.99" valign="baseline" size="footnote" style="math">(-\infty, \infty)</text>
 <path stroke="black">
 308 624 m
 240 608 l
@@ -596,5 +588,24 @@ h
 308 624 m
 504 560 l
 </path>
+<text matrix="1 0 0 1 -56 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="20.679" height="6.34" depth="1.49" valign="baseline" style="math">\leq x_1</text>
+<text matrix="1 0 0 1 -8 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_1</text>
+<text matrix="1 0 0 1 40 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_2</text>
+<text matrix="1 0 0 1 88 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_3</text>
+<text matrix="1 0 0 1 136 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_4</text>
+<text matrix="1 0 0 1 184 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_5</text>
+<text matrix="1 0 0 1 232 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_6</text>
+<text matrix="1 0 0 1 280 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_7</text>
+<text matrix="1 0 0 1 328 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_8</text>
+<text matrix="1 0 0 1 376 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_9</text>
+<text matrix="1 0 0 1 424 -48" transformations="translations" pos="116 504" stroke="black" type="label" width="14.135" height="4.294" depth="1.49" valign="baseline" style="math">x_{10}</text>
+<text matrix="1 0 0 1 60 0" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_3</text>
+<text matrix="1 0 0 1 164 0" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_5</text>
+<text matrix="1 0 0 1 260 0" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_7</text>
+<text matrix="1 0 0 1 348 0" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_9</text>
+<text matrix="1 0 0 1 208 48" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_6</text>
+<text matrix="1 0 0 1 388 48" transformations="translations" pos="116 504" stroke="black" type="label" width="14.135" height="4.294" depth="1.49" valign="baseline" style="math">x_{10}</text>
+<text matrix="1 0 0 1 116 96" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_4</text>
+<text matrix="1 0 0 1 188 144" transformations="translations" pos="116 504" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_8</text>
 </page>
 </ipe>

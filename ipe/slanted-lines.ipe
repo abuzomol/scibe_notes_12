@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70212" creator="Ipe 7.2.13">
-<info created="D:20191117140545" modified="D:20191120000712"/>
+<info created="D:20191117140545" modified="D:20191120212508"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -349,10 +349,20 @@ h
 <text matrix="1 0 0 1 200 56" transformations="translations" pos="156 548" stroke="black" type="label" width="9.139" height="4.294" depth="1.49" valign="baseline" style="math">s_9</text>
 <text matrix="1 0 0 1 -56 56" transformations="translations" pos="156 548" stroke="black" type="label" width="19.337" height="4.294" depth="2.32" valign="baseline" style="math">s_{-\infty}</text>
 <text matrix="1 0 0 1 240 56" transformations="translations" pos="156 548" stroke="black" type="label" width="13.111" height="4.294" depth="1.49" valign="baseline" style="math">s_{\infty}</text>
-<path matrix="1 0 0 1 -40 0" stroke="red">
+<path matrix="1 0 0 1 -56 0" stroke="red">
 220 608 m
 220 452 l
 </path>
-<text matrix="1 0 0 1 -44 0" transformations="translations" pos="220 444" stroke="red" type="label" width="5.694" height="4.289" depth="0" valign="baseline" style="math">x</text>
+<text matrix="1 0 0 1 -56 0" transformations="translations" pos="220 444" stroke="red" type="label" width="5.694" height="4.289" depth="0" valign="baseline" style="math">x</text>
+<text matrix="1 0 0 1 -4 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_1</text>
+<text matrix="1 0 0 1 44 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_2</text>
+<text matrix="1 0 0 1 60 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_3</text>
+<text matrix="1 0 0 1 92 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_4</text>
+<text matrix="1 0 0 1 108 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_5</text>
+<text matrix="1 0 0 1 124 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_6</text>
+<text matrix="1 0 0 1 140 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_7</text>
+<text matrix="1 0 0 1 188 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_8</text>
+<text matrix="1 0 0 1 204 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="10.163" height="4.294" depth="1.49" valign="baseline" style="math">x_9</text>
+<text matrix="1 0 0 1 252 -168" transformations="translations" pos="128 612" stroke="black" type="label" width="14.135" height="4.294" depth="1.49" valign="baseline" style="math">x_{10}</text>
 </page>
 </ipe>
